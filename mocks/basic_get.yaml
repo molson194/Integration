@@ -1,0 +1,6 @@
+- route: /api/basic
+  method: GET
+  response_code: 200
+  response_body: {
+    "basic": "get"
+  }

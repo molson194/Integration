@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <script>
+    async function basicGet() {
+      const response = await fetch('/api/basic');
+      const result = await response.json();
+      document.getElementById("basicGet").innerHTML = JSON.stringify(result);
+    }
+
+    async function basicPost() {
+      const response = await fetch('/api/basic', {
+        method: "POST",
+      });
+      const result = await response.json();
+      document.getElementById("basicPost").innerHTML = JSON.stringify(result);
+    }
+
+    async function pathParamGet() {
+      const response = await fetch(`/api/param/${document.getElementById('param').value}`);
+      const result = await response.json();
+      document.getElementById("pathParamGet").innerHTML = JSON.stringify(result);
+    }
+
+    async function bodyParamPost() {
+      const response = await fetch('/api/param', {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          param: document.getElementById('param').value,
+        })
+      });
+      const result = await response.json();
+      document.getElementById("bodyParamPost").innerHTML = JSON.stringify(result);
+    }
+  </script>
+  <body>
+    <h1>Integration</h1>
+    <div>
+      <button onclick="basicGet()">Basic Get</button>
+      <p id="basicGet"></p>
+    </div>
+    <div>
+      <button onclick="basicPost()">Basic Post</button>
+      <p id="basicPost"></p>
+    </div>
+    <input type="text" id="param" name="param" placeholder="test" /><br><br>
+    <div>
+      <button onclick="pathParamGet()">Path Param Get</button>
+      <p id="pathParamGet"></p>
+    </div>
+    <div>
+      <button onclick="bodyParamPost()">Body Param Post</button>
+      <p id="bodyParamPost"></p>
+    </div>
+  </body>
+</html>

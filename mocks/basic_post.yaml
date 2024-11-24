@@ -1,0 +1,7 @@
+- route: /api/basic
+  method: POST
+  body_params: null
+  response_code: 200
+  response_body: {
+    "basic": "post"
+  }

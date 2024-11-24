@@ -1,0 +1,9 @@
+- route: /api/param
+  method: POST
+  body_params: {
+    "param": "xyz"
+  }
+  response_code: 200
+  response_body: {
+    "post_param": "xyz"
+  }
